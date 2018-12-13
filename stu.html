@@ -1,1 +1,99 @@
+<html lang="en" dir="ltr">
+  <head>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function getRandomInt()
+       {
+          return Math.floor(Math.random() *100);
+        }
+        var stu1={name:"pranathi",a:[getRandomInt(),getRandomInt(),getRandomInt()]};
+        var stu2={name:"bindu",a:[getRandomInt(),getRandomInt(),getRandomInt()]};
+        var stu3={name:"yamini",a:[getRandomInt(),getRandomInt(),getRandomInt()]};
+        var stu4={name:"dattu",a:[getRandomInt(),getRandomInt(),getRandomInt()]};
+        var stu5={name:"prasanna",a:[getRandomInt(),getRandomInt(),getRandomInt()]};
+        var students=[stu1,stu2,stu3,stu4,stu5];
+        function displayStuDetails(){
+          document.writeln("NAME---"+" "+"MARKS---"+" TOTAL---"+" AVERAGE");
+          document.writeln("<br>");
+          for(var key in students){
+            for(var p in students[key]){
+              document.writeln(students[key][p]+"---");
+            }
+            document.writeln("<br>");
+          }
+        }
+        var avg1=0;var avg2=0;var avg3=0;var avg4=0;var avg5=0,tm1=0;tm2=0;tm3=0;tm4=0;tm5=0;
+        for(var k=0;k<3;k++){
+          tm1=tm1+stu1.a[k];
+          avg1=tm1/3;
+          tm2=tm2+stu2.a[k];
+          avg2=tm2/3;
+          tm3=tm3+stu3.a[k];
+          avg3=tm3/3;
+          tm4=tm4+stu4.a[k];
+          avg4=tm4/3;
+          tm5=tm5+stu5.a[k];
+          avg5=tm5/3;
+        }
+        var total=[tm1,tm2,tm3,tm4,tm5];
+        var avg=[avg1,avg2,avg3,avg4,avg5];
+        for(var l=0;l<5;l++){
+          students[l].t=total[l];
+          students[l].av=avg[l];
+        }
+        function sortByAvg(){
+          students.sort(function(a,b){return b.av-a.av});
+          document.writeln("NAME---"+" "+" AVERAGE");
+          document.writeln("<br>");
+          for(var v=0;v<5;v++){
+            document.writeln(students[v].name+"---");
+            document.writeln(" ");
+            document.writeln(students[v].av);
+            document.writeln("<br>")
+          }
+        }
+        function sortByTotal(){
+          students.sort(function(a,b){return b.t-a.t});
+          document.writeln("NAME---"+" "+" TOTAL");
+          document.writeln("<br>")
+          for(var v=0;v<5;v++){
+            document.writeln(students[v].name+"---");
+            document.writeln(" ");
+            document.writeln(students[v].t);
+            document.writeln("<br>")
+          }
+        }
+        function sortByName(){
+          students.sort(function(a,b){
+            if(a.name<b.name)
+            {
+              return -1
+            }
+            if(a.name>b.name){
+              return 1;
+            }
+            return 0;
+          });
+          document.writeln("NAME---"+" "+" AVERAGE---"+" "+" TOTAL");
+          document.writeln("<br>")
+          for(var v=0;v<5;v++){
+            document.writeln(students[v].name+"---");
+            document.writeln(" ");
+            document.writeln(students[v].av+"---");
+            document.writeln(" ");
+            document.writeln(students[v].t);
+            document.writeln("<br>")
+          }
+        }
+        displayStuDetails();
+        document.writeln("<h4>Sorting by total<h4>"+"<br>");
+        sortByTotal();
+        document.writeln("<h4>Sorting by avg<h4>"+"<br>");
+        sortByAvg();
+        document.writeln("<h4>Sorting by names<h4>"+"<br>");
+        sortByName();
+    </script>
+  </body>
+</html>
 
